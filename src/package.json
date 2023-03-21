@@ -1,0 +1,26 @@
+{
+  "name": "ttrpg",
+  "version": "0.0.1",
+  "description": "demo app of ttrpg",
+  "main": "page/index.html",
+  "window": {
+    "title": "test",
+    "toolbar": false,
+    "width": 800,
+    "height": 600,
+    "position": "center",
+    "min_width": 800,
+    "min_height": 600,
+    "max_width": 1920,
+    "max_height": 1080
+  },
+  "keywords": ["ttrpg","node-webkit"],
+  "build":{
+    "nwVersion": "0.14.7",
+    "nwFlavor": "normal",
+    "packed": false,
+    "files": ["**/*"],
+    "excludes": ["script/**/*"],
+    "output": "../dist/"
+  }
+}

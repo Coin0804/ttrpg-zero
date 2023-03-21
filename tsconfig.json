@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "ES2017",
+        "moduleResolution": "Node", 
+        "outDir": "src/page/js/",
+        "baseUrl": "./",
+        "sourceMap": false,
+        "types": [],
+        "allowSyntheticDefaultImports": true,
+        "paths": {
+            "@/*": ["./src/script/*"]
+        }
+    },
+    "include": [
+        "src/script/**/*.ts"
+    ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "ttrpg-zero",
+  "version": "1.0.0",
+  "description": "Typescript Text Role Play Game platform, a test version called zero",
+  "main": "rollup.config.js",
+  "scripts": {
+    "build": "rollup -c --bundleConfigAsCjs",
+    "test": "nw src/",
+    "prod": "build --tasks win-x64 --mirror https://npm.taobao.org/mirrors/nwjs/ ./src",
+    "dev": "npm run build&&npm run test",
+    "output": "npm run build&&npm run prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coin0804/ttrpg-zero.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Coin0804/ttrpg-zero/issues"
+  },
+  "homepage": "https://github.com/Coin0804/ttrpg-zero#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "nw": "0.14.7-sdk",
+    "nwjs-builder-phoenix": "^1.15.0",
+    "rollup": "^3.20.0",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "typescript": "^4.9.5"
+  }
+}
