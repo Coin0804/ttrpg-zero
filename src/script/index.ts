@@ -1,8 +1,5 @@
 import H5window from "./h5w/H5window";
 
-
-
-
 function main(){
     // Check config file
     const config:Config = require("../game.config.json");
@@ -15,13 +12,7 @@ function main(){
     if(!canvas&&!h5w) throw new Error(`No useable window.Please chek "game.config.json".`)
     // init for h5w
     const win = new H5window(h5w)
-
-
-
-
-
-
-
+    win.loadEvent("Title")
 }
 // run
 try{main()}catch(e){alert(e)}

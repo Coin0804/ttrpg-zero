@@ -1,0 +1,27 @@
+{
+    "$schema": "./schema.json",
+    "frameType":"normal",
+    "info":{
+        "infos":[
+            "testdemo",
+            {
+                "char":"author",
+                "content":["<coin0804>"]
+            }
+        ]
+    },
+    "display":{
+        "content":""
+    },
+    "action":{
+        "actions":[
+            {
+                "index": 0,
+                "targt": "newCharacter",
+                "args": {"party":"main","flag":"main"},
+                "text": "开始游戏",
+                "type": "loadEvent"
+            }
+        ]
+    }
+}

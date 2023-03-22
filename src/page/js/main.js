@@ -1,3 +1,5 @@
+import path from 'path';
+
 class Frame {
     constructor(parent, id, type = "normal") {
         this.id = id;
@@ -24,12 +26,16 @@ class H5window {
     constructor(h5w) {
         this.frameId = 0;
         this.frames = [];
+        this.rootDir = "/src/game/";
         this.main = h5w;
         this.newFrame();
     }
     newFrame() {
         this.frame = new Frame(this.main, this.frameId);
         this.frames[this.frameId++] = this.frame;
+    }
+    loadEvent(fileName, dir = "event") {
+        require(path.join(this.rootDir, dir, fileName + ".json"));
     }
 }
 
@@ -49,7 +55,8 @@ function main() {
     if (!canvas && !h5w)
         throw new Error(`No useable window.Please chek "game.config.json".`);
     // init for h5w
-    new H5window(h5w);
+    const win = new H5window(h5w);
+    win.loadEvent("Title");
 }
 // run
 try {

@@ -2,5 +2,8 @@
     "window":{
         "canvas":false,
         "html_window":true
+    },
+    "text":{
+        "size":"M"
     }
 }

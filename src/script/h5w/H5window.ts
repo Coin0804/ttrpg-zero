@@ -1,3 +1,4 @@
+import path from "path"
 import { Frame } from "./Frame"
 
 export default class H5window{
@@ -6,6 +7,8 @@ export default class H5window{
     frames:Frame[] = []
     frame:Frame
     
+    rootDir = "/src/game/"
+
     constructor(h5w:HTMLElement){
         this.main = h5w
         this.newFrame()
@@ -16,6 +19,10 @@ export default class H5window{
         this.frames[this.frameId++]=this.frame
     }
 
+    loadEvent(fileName:string,dir:string = "event"){
+        const event = require(path.join(this.rootDir,dir,fileName+".json"))
+        
+    }
 
 
 }
