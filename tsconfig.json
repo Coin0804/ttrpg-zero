@@ -5,10 +5,10 @@
         "outDir": "src/page/js/",
         "baseUrl": "./",
         "sourceMap": false,
-        "types": [],
+        "types": ["node","jquery"],
         "allowSyntheticDefaultImports": true,
         "paths": {
-            "@/*": ["./src/script/*"]
+            "@/*": ["./src/*"]
         }
     },
     "include": [

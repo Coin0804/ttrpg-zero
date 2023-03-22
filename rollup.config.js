@@ -23,7 +23,7 @@ export default {
         sourcemap: true
     },
     plugins: [
-        clear({ targets: ["src/page/js"] }),// 清除上次编译成果
+        clear({ targets: ["src/page/js","dist"] }),// 清除上次编译成果，顺带把输出也清一下
         resolve(),
         commonjs(),
         typescript({ tsconfig: "./tsconfig.json" }),//编译ts

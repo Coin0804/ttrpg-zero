@@ -23,6 +23,8 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/jquery": "^3.5.16",
+    "@types/node": "^18.15.5",
     "nw": "0.14.7-sdk",
     "nwjs-builder-phoenix": "^1.15.0",
     "rollup": "^3.20.0",

@@ -4,7 +4,7 @@
   "description": "demo app of ttrpg",
   "main": "page/index.html",
   "window": {
-    "title": "test",
+    "title": "demo",
     "toolbar": false,
     "width": 800,
     "height": 600,
@@ -20,7 +20,6 @@
     "nwFlavor": "normal",
     "packed": false,
     "files": ["**/*"],
-    "excludes": ["script/**/*"],
     "output": "../dist/"
   }
 }
