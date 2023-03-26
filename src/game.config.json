@@ -1,7 +1,11 @@
 {
+    "$schema": "schema.json",
     "window":{
         "canvas":false,
-        "html_window":true
+        "html_window":true,
+        "frame":{
+            "framesMax":50
+        }
     },
     "text":{
         "size":"M"

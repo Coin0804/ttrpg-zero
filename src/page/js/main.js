@@ -1,15 +1,20 @@
-import path from 'path';
+'use strict';
 
+var path = require('path');
+
+const FramePartsList = ["info", "display", "action"];
 class Frame {
-    constructor(parent, id, type = "normal") {
+    constructor(id, type = "normal") {
+        this.parts = {};
+        // bind basic attr
         this.id = id;
-        this.parent = parent;
-        this.info = this.newpart("info");
-        this.display = this.newpart("display");
-        this.action = this.newpart("action");
-        parent.appendChild(this.info);
-        parent.appendChild(this.display);
-        parent.appendChild(this.action);
+        this.element = document.createElement("div");
+        this.element.classList.add("frame");
+        this.element.id = "frame_" + this.id;
+        // create all parts & appendChild
+        for (let p of FramePartsList) {
+            this.newpart(p);
+        }
         this.switchFrameType(type);
     }
     switchFrameType(type) {
@@ -18,31 +23,39 @@ class Frame {
         let temp = document.createElement("div");
         temp.classList.add[name];
         temp.id = "frame_" + this.id + "_" + name;
-        return temp;
+        this.parts[name] = temp;
+        this.element.appendChild(temp);
     }
 }
 
 class H5window {
-    constructor(h5w) {
+    constructor(h5w, config) {
         this.frameId = 0;
         this.frames = [];
-        this.rootDir = "/src/game/";
-        this.main = h5w;
-        this.newFrame();
+        this.rootDir = "/game";
+        this.element = h5w;
+        this.config = config;
     }
-    newFrame() {
-        this.frame = new Frame(this.main, this.frameId);
-        this.frames[this.frameId++] = this.frame;
+    newFrame(frametype) {
+        var _a, _b, _c;
+        this.frame = new Frame(this.frameId, frametype);
+        if (this.frames.length > (((_c = (_b = (_a = this.config) === null || _a === void 0 ? void 0 : _a.window) === null || _b === void 0 ? void 0 : _b.frame) === null || _c === void 0 ? void 0 : _c.framesMax) || 50)) {
+            let f = this.frames.shift();
+            f.element.remove();
+        }
+        this.frames.push(this.frame);
+        this.element.appendChild(this.frame.element);
     }
     loadEvent(fileName, dir = "event") {
-        require(path.join(this.rootDir, dir, fileName + ".json"));
+        const event = require(path.join(process.cwd(), this.rootDir, dir, fileName + ".json"));
+        this.newFrame(event.frameType);
     }
 }
 
 function main() {
     var _a, _b;
     // Check config file
-    const config = require("../game.config.json");
+    const config = require(path.join(process.cwd(), "game.config.json"));
     if (!config)
         throw new Error(`No "game.config.json" found. Please check the file.`);
     // Check canvas & window
@@ -55,7 +68,7 @@ function main() {
     if (!canvas && !h5w)
         throw new Error(`No useable window.Please chek "game.config.json".`);
     // init for h5w
-    const win = new H5window(h5w);
+    const win = new H5window(h5w, config);
     win.loadEvent("Title");
 }
 // run

@@ -1,0 +1,1 @@
+{"type":"object","properties":{"window":{"type":"object","properties":{"canvas":{"type":"boolean"},"html_window":{"type":"boolean"},"frame":{"type":"object","properties":{"framesMax":{"type":"number"}}}}},"text":{"type":"object","properties":{"size":{"enum":["L","M","S"],"type":"string"}}}},"$schema":"http://json-schema.org/draft-07/schema#"}

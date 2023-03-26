@@ -15,9 +15,10 @@ import fs from "fs"
 
 // 输出json模板文件
 const typefiles = ["src/script/types.d.ts"]
-const outDir = "./src/game"
+const outDir = "./src"
 const myTypes = [
-    {typeName:"GameEvent",dir:"event"},
+    {typeName:"Config",dir:""},
+    {typeName:"GameEvent",dir:"game/event"},
 ]
 for(let i of myTypes){
     let program = tjs.getProgramFromFiles(typefiles)
@@ -31,7 +32,7 @@ export default {
     input: 'src/script/index.ts',//入口
     output: {
         file: 'src/page/js/main.js',//出口
-        format: 'es',//以es形式编译
+        format: 'cjs',//以cjs形式编译
         sourcemap: true
     },
     plugins: [

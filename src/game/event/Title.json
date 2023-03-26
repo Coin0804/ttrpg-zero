@@ -17,10 +17,13 @@
         "actions":[
             {
                 "index": 0,
-                "targt": "newCharacter",
-                "args": {"party":"main","flag":"main"},
                 "text": "开始游戏",
-                "type": "loadEvent"
+                "type": "loadEvent",
+                "targt": "newCharacter",
+                "args": {
+                    "party":"main",
+                    "flag":"main"
+                }
             }
         ]
     }

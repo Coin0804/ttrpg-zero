@@ -1,18 +1,19 @@
+export const FramePartsList:readonly FrameParts[] = ["info","display","action"] as const
+
 export class Frame{
     id:number
-    parent:HTMLElement
-    info:HTMLDivElement
-    display:HTMLDivElement
-    action:HTMLDivElement
-    constructor(parent:HTMLElement,id:number,type:FrameTypes="normal"){
+    element:HTMLDivElement
+    parts:{[key in FrameParts]?:HTMLDivElement} = {}
+    constructor(id:number,type:FrameTypes="normal"){
+        // bind basic attr
         this.id = id
-        this.parent = parent
-        this.info = this.newpart("info")
-        this.display = this.newpart("display")
-        this.action = this.newpart("action")
-        parent.appendChild(this.info)
-        parent.appendChild(this.display)
-        parent.appendChild(this.action)
+        this.element = document.createElement("div")
+        this.element.classList.add("frame")
+        this.element.id = "frame_"+this.id
+        // create all parts & appendChild
+        for(let p of FramePartsList){
+            this.newpart(p)
+        }
         this.switchFrameType(type)
     }
 
@@ -31,7 +32,8 @@ export class Frame{
         let temp = document.createElement("div")
         temp.classList.add[name]
         temp.id = "frame_"+this.id+"_"+name
-        return temp
+        this.parts[name] = temp
+        this.element.appendChild(temp)
     }
 
 

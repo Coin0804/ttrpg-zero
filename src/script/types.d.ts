@@ -10,7 +10,10 @@ declare type FrameTypes = normalFrame|dialogFrame|actionFrame|cgFrame
 declare interface Config {
     window?: {
         canvas?: boolean,
-        html_window?: boolean
+        html_window?: boolean,
+        frame?:{
+            framesMax?:number
+        }
     },
     text?: {
         size?: "S" | "M" | "L"
