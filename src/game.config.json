@@ -4,7 +4,8 @@
         "canvas":false,
         "html_window":true,
         "frame":{
-            "framesMax":50
+            "framesMax":50,
+            "infoMax": 50
         }
     },
     "text":{

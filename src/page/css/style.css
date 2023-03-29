@@ -11,9 +11,25 @@ body{
     margin: 0;
     width: 100%;
     display: none;
+    color: white;
 }
-
-
-
+.frame{
+    display: flex;
+}
+.partinfo{
+    display: flex;
+    flex-direction: column;
+}
+.partaction{
+    display: flex;
+    flex-direction: column;
+}
+.partdispaly{
+    flex-direction: column;
+    display: flex;
+}
+.infocontent{
+    overflow:hidden;
+}
 
 

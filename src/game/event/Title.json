@@ -5,13 +5,15 @@
         "infos":[
             "testdemo",
             {
-                "char":"author",
-                "content":["<coin0804>"]
+                "char":"copyright",
+                "content":["© coin0804<github>"]
             }
         ]
     },
     "display":{
-        "content":""
+        "content":[
+
+        ]
     },
     "action":{
         "actions":[
